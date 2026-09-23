@@ -9,7 +9,7 @@ Used for showing speedometer like gauge using d3.
 | **1.0.1** (`Version1.0.1`) | **10.24.17** | Current — `@mendix/pluggable-widgets-tools` 10.16.0, minified production build (72 KB) |
 | 1.0.0 (`Version1.1`) | 9.12.4 | Previous release |
 
-Download the matching `.mpk` from the [Releases](https://github.com/bharathidas/d3_speedometer/releases) page. The `mendix.Speedometer.mpk` on `main` is always the latest version (**1.0.1**). The sample app package `d3_speedometer.mpk` stays available on the `Version1.1` release.
+Download the matching `.mpk` from the [Releases](https://github.com/bharathidas/d3_speedometer/releases) page. The `mendix.Speedometer.mpk` on `main` is always the latest version (**1.0.1**). `d3speedometer.mpk` is the sample module for Studio Pro **10.24.17** (includes widget 1.0.1): import it via *File > Import Module Package* and open `d3speedometer.Home_Web`. The older 9.12.4 sample app package `d3_speedometer.mpk` stays available on the `Version1.1` release.
 
 1.0.1 is a rebuild of the same TypeScript source against the 10.x tooling. `Speedometer.xml` is byte-identical to 1.0.0, so existing widget instances keep their configuration. Rendering still uses react-d3-speedometer 2.2.1; source changes are lint-only.
 
