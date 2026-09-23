@@ -7,7 +7,7 @@ Used for showing speedometer like gauge using d3.
 | Widget / GitHub version | Mendix Studio Pro | Notes |
 | --- | --- | --- |
 | **1.0.1** (`Version1.0.1`) | **10.24.17** | Current — `@mendix/pluggable-widgets-tools` 10.16.0, minified production build (72 KB) |
-| 1.0.0 (`Version1.1`) | 9.12.4 | Previous release |
+| 1.0.0 (`Version1.0`) | 9.12.4 | Previous release — widget on `Version1.0`, sample app `d3_speedometer.mpk` on `Version1.1` |
 
 Download the matching `.mpk` from the [Releases](https://github.com/bharathidas/d3_speedometer/releases) page. The `mendix.Speedometer.mpk` on `main` is always the latest version (**1.0.1**). `d3speedometer.mpk` is the sample module for Studio Pro **10.24.17** (includes widget 1.0.1): import it via *File > Import Module Package* and open `d3speedometer.Home_Web`. The older 9.12.4 sample app package `d3_speedometer.mpk` stays available on the `Version1.1` release.
 
@@ -84,7 +84,7 @@ Font weight for current value text. Any valid font weight identifier (500, bold 
 ## Dependencies:
 •	Mendix Studio Pro **10.24.17** (widget **1.0.1**)
 
-•	Mendix modeler 9.12.4 (widget 1.0.0 — see release `Version1.1`)
+•	Mendix modeler 9.12.4 (widget 1.0.0 — see release `Version1.0`; sample app on `Version1.1`)
 
 ## Known behavior
 
