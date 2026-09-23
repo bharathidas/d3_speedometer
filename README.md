@@ -1,5 +1,7 @@
 ## d3 speedometer
 
+![d3 Speedometer](images/cover.jpg)
+
 Used for showing speedometer like gauge using d3.
 
 ## Versions
