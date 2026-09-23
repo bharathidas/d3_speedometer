@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.speedometer.Speedometer" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Speedometer</name>
+    <description>howing speedometer like gauge using d3.</description>
+    <icon>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAABp1BMVEUAAABV//9mzP9LtP9Ms/9Jtv9NsvdJsfpLtPpJsfdJsfhJsvhJsvdKsvdJsPhKsPhJsfdJsPhJsfdIsfhJsfdIsPdJsfhJsfhJsPhJsPhIsfhIsPdJsPdKsPdKsfdNsvdOsvdPs/dQs/dRtPdStPdTtPdUtfdWtvdXtvdauPdcuPdeufdeufhguvhiu/hju/hkvPhmvfhnvfhpvvhrv/huwPhvwfhxwfhywvhzwvh4xfl5xfl6xfl8xvl9xvl9x/mByPmCyfmFyvmGyvmJzPmKzPmLzfmNzvqPzvqQz/qT0PqU0PqU0fqX0vqY0vqa0/qe1fqg1vqj1/uk1/un2fup2vut2/uv3Puw3Puw3fuz3vu13/u23/u34Pu44Pu64fu64fy84vy94vy+4/y/4/zD5fzE5fzG5vzH5vzI5/zK6PzL6PzR6/zT7P3U7P3V7f3W7f3Y7v3Z7v3c8P3e8f3f8f3g8f3i8v3l8/3l9P3n9P3r9v7t9/7u9/7v+P7w+P7x+f7y+f70+v71+v74/P75/P76/f77/f78/f78/v79/v7+/v7////6dMsRAAAAG3RSTlMAAwURGxwhMTNic3SEh4iVp7XBzejt7vH5/f6PsMNWAAABsklEQVR4AWIYfGAUjIJRMAqYuYREJKWJAqLCPGwY+jnFpEkBEryMqPr5pEkFgkwo9kuTDviR/S9GhgFSHAgDuKXJAQIIA4TIMkAcEY4i0mQBVrgBkuQZwA43QJo8wIFhQEhEOIBQOutHJozDOP5Crp4e1RhkJ0tKGJFd6oNEdtmJyEIzpaZl5nrRZgaHM/2Pf5/vwXXfyagXgG93bwSAlEolowLMm9w83gibhXH2gKKVdD67gTnWjwCk+VVjMQS4suSnnjMLRVFc9sAHvAX2A9fySaXNBMbEZVUWscaHIMRuqwBgD8hDEbnsRmfjUKJkAQZGCTlO/xWBwIADQLIZBlY441MvfoF1xlFS/4fy+bzXKh4dgNJE7L3eh3tmtuWa+AMcMIY3dgUvZQpGEYmMw2kD7HC+R29UqyoXLaBd0QZxzgXgikLLDSqJTKU5HOcS0MsbA9jPqtwCRvXm2eorBbNIJBw3KJ9O4Yl+AAXdnyaLt7PWN3jRWLvzmAVp94zO5+n41/onfo/UpExxZqI0O7NQr0DhIq9Io7hQpbRYp7hiobRqo6ByFcNWuY6CUTAKRgEAo8X0lBD3V30AAAAASUVORK5CYII=
+    </icon>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="valueKey" type="attribute" required="false">
+				<caption>value</caption>
+                <description>Make sure your value is between your minValue and maxValue. Default is 0</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>                      
+                </attributeTypes>
+            </property>
+            <property key="minValueKey" type="attribute" required="false">
+                <caption>minValue</caption>
+                <description>Min Value. Default is 0</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>                      
+                </attributeTypes>
+            </property>
+            <property key="maxValueKey" type="attribute" required="false">
+                <caption>maxValue</caption>
+                <description>Max Value. Default is 1000</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>                      
+                </attributeTypes>
+            </property>
+            <property key="forceRenderKey" type="attribute" required="false">
+                <caption>forceRender</caption>
+                <description>After initial rendering/mounting, when props change, only the value is changed and animated to maintain smooth visualization. But, if you want to force rerender the whole component like change in segments, colors, dimensions etc, you can use this option to force rerender of the whole component on props change. Default is true.</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>
+                </attributeTypes>
+            </property>
+            <property key="currentValueTextKey" type="attribute" required="false">
+                <caption>currentValueText</caption>
+                <description>Should be provided a string which should have ${value} placeholder which will be replaced with current value. By default, current value is shown (formatted with valueFormat). For example, if current Value is 333 if you would like to show Current Value: 333, you should provide a string Current Value: ${value}</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="currentValuePlaceholderStyleKey" type="attribute" required="false">
+                <caption>currentValuePlaceholderStyle</caption>
+                <description>Should be provided a placeholder string which will be replaced with current value</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="svgAriaLabelKey" type="attribute" required="false">
+                <caption>svgAriaLabel</caption>
+                <description>SVG aria-label property for Accessibility purposes. Default is "React d3 speedometer"</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+
+        <propertyGroup caption="Dimensions">
+            <property key="widthKey" type="attribute" required="false">
+                <caption>width</caption>
+                <description>diameter of the speedometer and the width of the svg element. Default is 300.</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>
+                </attributeTypes>
+            </property>
+            <property key="heightKey" type="attribute" required="false">
+                <caption>height</caption>
+                <description>height of the svg element. Height of the speedometer is always half the width since it is a semi-circle. Default is 300.</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>
+                </attributeTypes>
+            </property>
+            <property key="dimensionUnitKey" type="attribute" required="false">
+                <caption>dimension Unit</caption>
+                <description>Possible values - "em" , "ex" , "px" , "in" , "cm" , "mm" , "pt" , ,"pc". Default is "px" for width/height.</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="fluidWidthKey" type="attribute" required="false">
+                <caption>fluidWidth</caption>
+                <description>If true takes the width of the parent component. Default is false.</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>
+                </attributeTypes>
+            </property>
+            <property key="paddingHorizontalKey" type="attribute" required="false">
+                <caption>paddingHorizontal</caption>
+                <description>Provides right/left space for the label text. Takes a number (without explicit unit, unit will be taken from dimensionUnit config which defaults to px). Helpful when using a bigger font size for label texts. Default is 0.</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>
+                </attributeTypes>
+            </property>
+            <property key="paddingVerticalKey" type="attribute" required="false">
+                <caption>paddingVertical</caption>
+                <description>Provides top/bottom space for the current value label text below the needle. Takes a number (without explicit unit, unit will be taken from dimensionUnit config which defaults to px). Helpful when using a bigger font size for label texts. Default is 0.</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>
+                </attributeTypes>
+            </property>
+            <property key="ringWidthKey" type="attribute" required="false">
+                <caption>ringWidth</caption>
+                <description>Width of the speedometer ring. Default is 60.</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+
+         <propertyGroup caption="Segments">
+         <property key="segmentsKey" type="attribute" required="false">
+                <caption>segments</caption>
+                <description>Number of segments in the speedometer.</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>                      
+                </attributeTypes>
+            </property>
+            <property key="maxSegmentLabelsKey" type="attribute" required="false">
+                <caption>maxSegmentLabels</caption>
+                <description>Limit the number of segment labels to displayed.</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>                      
+                </attributeTypes>
+            </property>
+            <property key="segmentColorsKey" type="attribute" required="false">
+                <caption>segmentColors</caption>
+                <description>Custom segment colors can be given with this option. Should be an array of valid color codes. If this option is given startColor and endColor options will be ignored</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="customSegmentStopsKey" type="attribute" required="false">
+                <caption>customSegmentStops</caption>
+                <description>Array of values starting at min value, and ending at max value. This configuration is useful if you would like to split the segments at custom points or have unequal segments at preferred values. If the values does not begin and end with min and max value respectively, an error will be thrown. This configuration will override segments prop, since total number of segments will be length - 1</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="customSegmentLabelsKey" type="attribute" required="false">
+                <caption>customSegmentLabels</caption>
+                <description>Takes an array of CustomSegmentLabel objects. Each object has following keys for custom rendering of labels - text, fontSize, color, position: OUTSIDE/INSIDE.</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+         </propertyGroup>
+
+        <propertyGroup caption="Colors">
+            <property key="needleColorKey" type="attribute" required="false">
+                <caption>needleColor</caption>
+                <description>Should be a valid color code - colorname, hexadecimal name or rgb value. Default is "steelblue"</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="startColorKey" type="attribute" required="false">
+                <caption>startColor</caption>
+                <description>Should be a valid color code - colorname, hexadecimal name or rgb value. Default is "#FF471A"</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="endColorKey" type="attribute" required="false">
+                <caption>endColor</caption>
+                <description>Should be a valid color code - colorname, hexadecimal name or rgb value. Default is "#33CC33"</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+
+        <propertyGroup caption="Needle">
+            <property key="needleTransitionKey" type="attribute" required="false">
+                <caption>needleTransition</caption>
+                <description>easeLinear, easeQuadIn, easeQuadOut, easeQuadInOut, easeCubicIn, easeCubicOut, easeCubicInOut, easePolyIn, easePolyOut, easePolyInOut, easeSinIn, easeSinOut, easeSinInOut, easeExpIn, easeExpOut, easeExpInOut, easeCircleIn, easeCircleOut, easeCircleInOut, easeBounceIn, easeBounceOut, easeBounceInOut, easeBackIn, easeBackOut, easeBackInOut, easeElasticIn, easeElasticOut, easeElasticInOut, easeElastic. Default is "easeQuadInOut"</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="needleTransitionDurationKey" type="attribute" required="false">
+                <caption>needleTransitionDuration</caption>
+                <description>Time in milliseconds. Default is 500.</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>
+                </attributeTypes>
+            </property>
+            <property key="needleHeightRatioKey" type="attribute" required="false">
+                <caption>needleHeightRatio</caption>
+                <description>Control the height of the needle by giving a decimal between 0 and 1. Default height ratio is 0.9.</description>
+                <attributeTypes>
+                    <attributeType name="Decimal"/>
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Labels">
+            <property key="textColorKey" type="attribute" required="false">
+                <caption>textColor</caption>
+                <description>Should be a valid color code - colorname, hexadecimal name or rgb value. Used for both showing the current value and the segment values. Default is #666</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="valueFormatKey" type="attribute" required="false">
+                <caption>valueFormat</caption>
+                <description>should be a valid format for d3-format. By default, no formatter is used. You can use a valid d3 format identifier (for eg: d to convert float to integers), to format the values. Note: This formatter affects all the values (current value, segment values) displayed in the speedometer</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="labelFontSizeKey" type="attribute" required="false">
+                <caption>labelFontSize</caption>
+                <description>Font size for segment labels/legends. Default is 14px</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="valueTextFontSizeKey" type="attribute" required="false">
+                <caption>valueTextFontSize</caption>
+                <description>Font size for current value text. Default is 16px</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="valueTextFontWeightKey" type="attribute" required="false">
+                <caption>valueTextFontWeight</caption>
+                <description>Font weight for current value text. Any valid font weight identifier (500, bold etc) can be used. Default is bold</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>

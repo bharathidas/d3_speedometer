@@ -1,0 +1,24 @@
+.widget-speedometer-clickable {
+    cursor: pointer;
+}
+
+.widget-speedometer {
+    display: inline-block;
+}
+
+.widget-speedometer.badge:empty {
+    display: initial;
+    /* Fix padding to stay round */
+    padding: 3px 10px;
+}
+
+.widget-speedometer.label:empty {
+    display: initial;
+    /* Fix padding to stay square */
+    padding: .2em .8em .3em;
+}
+
+.widget-speedometer.badge {
+    min-width: 18px;
+    min-height: 18px;
+}
